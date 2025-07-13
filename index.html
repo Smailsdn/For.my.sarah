@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sarah Gift</title>
+  <style>
+    body {
+      background: linear-gradient(to top, #ffdde1, #ee9ca7);
+      color: #2e2e2e;
+      text-align: center;
+      font-family: 'Arial', sans-serif;
+      padding: 30px;
+      animation: fadein 2s ease-in;
+    }
+    h1 {
+      font-size: 3em;
+      margin: 20px 0;
+    }
+    .count {
+      font-size: 6em;
+      color: #e60073;
+      animation: pulse 1s infinite;
+    }
+    .love-phrase {
+      font-size: 1.5em;
+      margin: 10px 0;
+      color: #6d003b;
+    }
+    .poem, .proposal {
+      display: none;
+      margin-top: 30px;
+      font-size: 1.2em;
+      line-height: 1.8;
+    }
+    .proposal {
+      font-size: 2em;
+      color: #b30059;
+    }
+    img {
+      max-width: 200px;
+      margin-top: 20px;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+    @keyframes fadein {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://dl.sndup.net/wshx/I%20Wanna%20Be%20Yours.mp3" type="audio/mp3">
+  </audio>
+
+  <div id="countdown">
+    <div class="count" id="number">5</div>
+    <div class="love-phrase" id="phrase">أنتِ كل أمنياتي... and more 💫</div>
+  </div>
+
+  <div class="poem" id="poem">
+    💌 إلى سارة، حبيبتي وصديقتي الأبدية 🌹<br><br>
+    اشتقت لكِ بكل ما في القلب من حنين...<br>
+    وأدعوكِ في صلاتي بكل إخلاص ويقين 💭<br>
+    كل لحظة بدونك تمرّ وكأنّها عمر 🕊️<br>
+    وأنتِ وحدكِ من جعلني أؤمن أن الحبّ قدر 💖<br><br>
+    I miss your laugh, your light, your face,<br>
+    You turn the world into a better place ✨<br><br>
+    سارة، كُنتِ وما زلتِ أماني الوحيدة 🌸<br>
+    وجودك في حياتي هو أعظم هدية 🎁<br>
+    <br>...
+  </div>
+
+  <div class="proposal" id="proposal">
+    Will you marry me? 💍🌹<br>
+    🐼🤵‍♂️👉💞👈👰‍♀️🐼
+    <br><img src="https://i.imgur.com/UKQqG7O.png" alt="panda propose">
+  </div>
+
+  <script>
+    const numberEl = document.getElementById("number");
+    const phraseEl = document.getElementById("phrase");
+    const poemEl = document.getElementById("poem");
+    const proposalEl = document.getElementById("proposal");
+
+    const phrases = [
+      "أنتِ كل أمنياتي... and more 💫",
+      "I miss you more than words can say 💔",
+      "كل مرة ندعيلك... قلبي يرتاح 💌",
+      "You're my safest place 🌸",
+      "ربي يخليك لقلبي... forever ❤️"
+    ];
+
+    let count = 5;
+
+    const countdown = setInterval(() => {
+      count--;
+      if (count >= 0) {
+        numberEl.textContent = count;
+        phraseEl.textContent = phrases[5 - count] || "";
+      } else {
+        clearInterval(countdown);
+        document.getElementById("countdown").style.display = "none";
+        poemEl.style.display = "block";
+
+        setTimeout(() => {
+          proposalEl.style.display = "block";
+        }, 8000);
+      }
+    }, 1500);
+  </script>
+</body>
+</html>
